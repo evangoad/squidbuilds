@@ -1,0 +1,8 @@
+exclude:
+  - node_modules
+  - app
+  - package.json
+  - webpack.config.js
+  - Gemfile
+  - Gemfile.lock
+  - js/index.html
