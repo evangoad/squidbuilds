@@ -19,7 +19,11 @@
   "keywords": [
     "splatoon"
   ],
-  "author": "evangoad, bobcats",
+  "author": "Evan Goad <evangoad102@gmail.com>",
+  "contributors": [{
+    "name": "Brian Field",
+    "email": "brian@madsalty.com"
+  }],
   "dependencies": {
     "alt": "^0.17.1",
     "async": "^1.4.0",
