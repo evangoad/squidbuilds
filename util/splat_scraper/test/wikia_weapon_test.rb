@@ -1,11 +1,11 @@
 require "test_helper"
 
 module SplatScraper
-  module WikiaTest
+  module WikiaWeaponTest
     def setup
       stub_request(:get, url).to_return(body: fixture)
 
-      @wikia = Wikia.new(url: url)
+      @wikia = Wikia::Weapon.new(url: url)
     end
 
     def test_body
@@ -30,7 +30,7 @@ module SplatScraper
   end
 
   class WikiaSplatterShotJrTest < Minitest::Test
-    include WikiaTest
+    include WikiaWeaponTest
 
     def url
       "http://splatoon.wikia.com/wiki/Custom_Splattershot_Jr."
@@ -58,7 +58,7 @@ module SplatScraper
   end
 
   class WikiaEliter3kTest < Minitest::Test
-    include WikiaTest
+    include WikiaWeaponTest
 
     def url
       "http://splatoon.wikia.com/wiki/E-liter_3K"
@@ -86,7 +86,7 @@ module SplatScraper
   end
 
   class WikiaRapidBlasterDecoTest < Minitest::Test
-    include WikiaTest
+    include WikiaWeaponTest
 
     def url
       "http://splatoon.wikia.com/wiki/Rapid_Blaster_Deco"
