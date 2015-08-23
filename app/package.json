@@ -8,7 +8,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base js/ --host 0.0.0.0 --progress --colors",
+    "start": "webpack-dev-server --content-base ../js/ --host 0.0.0.0 --progress --colors",
     "ship": "webpack --optimize-minimize",
     "test": "mocha --recursive --compilers js:babel/register",
     "test:watch": "npm test -- --watch"
