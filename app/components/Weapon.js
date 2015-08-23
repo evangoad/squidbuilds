@@ -1,6 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Weapon extends Component {
+  get displayName() {
+    return "Weapon";
+  }
+
   render() {
     return (
       <div
@@ -15,7 +19,6 @@ export default class Weapon extends Component {
   }
 
   handleClick(e) {
-    console.log(this.props.selected)
     if (this.props.selected) {
       this.props.onDeselected(this.props.equipment)
     } else {

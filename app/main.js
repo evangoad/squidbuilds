@@ -2,15 +2,23 @@ require('./stylesheets/style.css');
 
 import React from 'react';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 
 import App from './components/App';
-import squidbuilds from './reducers/squidbuilds'
+import squidbuilds from './reducers/squidbuilds';
+import Immutable from 'immutable';
+import * as UrlState from './services/UrlState';
+import { WeaponData } from './constants/Data';
 
-let store = createStore(squidbuilds);
+let state = {
+  selected: UrlState.get(),
+  WeaponData
+}
+
+let store = createStore(squidbuilds, Immutable.fromJS(state));
 
 let unsubscribe = store.subscribe(() => {
-  console.log(store.getState().toJS());
+  UrlState.write(store.getState().get("selected").toJS());
 });
 
 let rootElement = document.getElementById('app');
