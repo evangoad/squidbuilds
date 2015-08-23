@@ -1,3 +1,4 @@
+/*eslint-disable */
 export const WeaponData = [
   {
     "name":"Splattershot Jr.",

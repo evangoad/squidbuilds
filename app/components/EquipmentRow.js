@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Weapon from './Weapon'
+import Weapon from './Weapon';
 
 class EquipmentRow extends Component {
   get displayName() {
@@ -15,30 +15,30 @@ class EquipmentRow extends Component {
       return (
         <Weapon
           equipment={equip.name}
-          selected={selected}
-          onSelected={() =>
-            this.props.onSelected(index)
-          }
           onDeselected={() =>
             this.props.onDeselected(index)
           }
+          onSelected={() =>
+            this.props.onSelected(index)
+          }
+          selected={selected}
         />
-      )
-    })
+      );
+    });
 
     return (
       <div>
         {equips}
       </div>
-    )
+    );
   }
 }
 
 EquipmentRow.propTypes = {
-  selectedEquipment: PropTypes.array.isRequired,
   equipment: PropTypes.array.isRequired,
+  onDeselected: PropTypes.func.isRequired,
   onSelected: PropTypes.func.isRequired,
-  onDeselected: PropTypes.func.isRequired
-}
+  selectedEquipment: PropTypes.array.isRequired,
+};
 
 export default EquipmentRow;

@@ -2,7 +2,7 @@ function get() {
   if (window.location.hash === '') {
     return [];
   } else {
-    return optimisticParse(window.location.hash)
+    return optimisticParse(window.location.hash);
   }
 }
 
@@ -12,7 +12,7 @@ function optimisticParse(hash) {
 }
 
 function write(array) {
-  let chars = `#${array.join('.')}`
+  let chars = `#${array.join('.')}`;
   let currentState = window.history.state;
 
   window.history.replaceState(currentState, document.title, chars);
