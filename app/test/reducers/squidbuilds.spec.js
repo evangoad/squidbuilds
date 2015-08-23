@@ -1,27 +1,41 @@
 import expect from 'expect';
+import assert from 'assert'
+import Immutable, { Map, List } from 'immutable';
 import squidbuilds from '../../reducers/squidbuilds';
 import * as types from '../../constants/ActionTypes';
 
 describe('squidbuilds reducer', () => {
 
+  let initialState = Map({
+    selected: List.of()
+  });
+
   it('should handle initial state', () => {
-    expect(
-      squidbuilds(undefined, {})
-    ).toEqual({
-      selected: []
-    });
+    let result = squidbuilds(undefined, {});
+
+    assert(Immutable.is(initialState, result));
   });
 
   it('should handle DESELECT_ALL', () => {
-    expect(
-      squidbuilds({
-        selected: ["Splattershot"]
-      }, {
+    let result = squidbuilds(
+      Map({
+        selected: List.of("Splattershot")
+      }), {
         type: types.DESELECT_ALL
-      })
-    ).toEqual({
-      selected: []
+      }
+    );
+
+    assert(Immutable.is(initialState, result))
+  });
+
+  it('should handle SELECT_EQUIPMENT with nothing selected', () => {
+    let result = squidbuilds(initialState, {
+      type: types.SELECT_EQUIPMENT,
+      equipment: "Splattershot"
     });
+    let selected = result.get("selected");
+
+    assert(selected.includes("Splattershot"));
   });
 
 });
