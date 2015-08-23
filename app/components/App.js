@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/squidbuilds';
 import EquipmentRow from './EquipmentRow';
@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   render() {
-    const { dispatch, selected, WeaponData } = this.props
+    const { dispatch, selected, WeaponData } = this.props;
 
     return (
       <div>
@@ -17,22 +17,28 @@ class App extends Component {
           Deselect
         </a>
         <EquipmentRow
-          selectedEquipment={selected}
           equipment={WeaponData}
-          onSelected={equipment =>
-            dispatch(actions.selectEquipment(equipment))
-          }
           onDeselected={equipment =>
             dispatch(actions.deselectEquipment(equipment))
           }
+          onSelected={equipment =>
+            dispatch(actions.selectEquipment(equipment))
+          }
+          selectedEquipment={selected}
         />
       </div>
     );
   }
 }
 
+App.propTypes = {
+  WeaponData: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  selected: PropTypes.array.isRequired,
+};
+
 function select(state) {
-  return state.toJS()
+  return state.toJS();
 }
 
 export default connect(select)(App);

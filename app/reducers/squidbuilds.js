@@ -4,8 +4,8 @@ import * as types from '../constants/ActionTypes';
 
 let state = {
   selected: [],
-  WeaponData
-}
+  WeaponData,
+};
 
 const initialState = Immutable.fromJS(state);
 
@@ -25,7 +25,7 @@ function selected(state = List.of(), action) {
 export default function squidbuilds(state = initialState, action) {
   return state.merge(
     Map({
-      selected: selected(state.get("selected"), action)
+      selected: selected(state.get('selected'), action),
     })
   );
 }

@@ -1,11 +1,11 @@
 module.exports = {
   entry: {
-    app: ['./main.js']
+    app: ['./main.js'],
   },
   output: {
     path: '../js',
     publicPath: '/assets/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
@@ -14,10 +14,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel',
       },
-      { test: /\.css/, loader: 'style!css' }
-    ]
+      { test: /\.css/, loader: 'style!css' },
+    ],
   },
   resolve: {
-    extensions: ['', '.js', '.json' ]
-  }
+    extensions: ['', '.js', '.json' ],
+  },
 };
