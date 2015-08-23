@@ -1,5 +1,5 @@
 function get() {
-  if (global.location.hash === '') {
+  if (window.location.hash === '') {
     return [];
   } else {
     return optimisticParse(window.location.hash)

@@ -22,7 +22,6 @@ function selected(state = List.of(), action) {
   }
 }
 
-
 export default function squidbuilds(state = initialState, action) {
   return state.merge(
     Map({
