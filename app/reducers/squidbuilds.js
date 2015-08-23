@@ -5,16 +5,21 @@ const initialState = Map({
   selected: List.of()
 })
 
-export default function squidbuilds(state = initialState, action) {
+function selected(state = List.of(), action) {
   switch (action.type) {
-    case types.DESELECT_ALL:
-      return state.set('selected', List.of());
-    case types.SELECT_EQUIPMENT:
-      let selected = state.get("selected");
-      let newSelected = selected.push(action.equipment);
+  case types.DESELECT_ALL:
+    return List.of();
+  case types.SELECT_EQUIPMENT:
+    let newSelected = state.push(action.equipment);
 
-      return state.set('selected', newSelected);
-    default:
-      return state;
+    return newSelected;
+  default:
+    return state;
   }
+}
+
+export default function squidbuilds(state = initialState, action) {
+  return Map({
+    selected: selected(state.get("selected"), action)
+  });
 }
