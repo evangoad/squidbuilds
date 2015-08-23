@@ -14,7 +14,9 @@ describe('squidbuilds reducer', () => {
 
   it('should handle DESELECT_ALL', () => {
     expect(
-      squidbuilds([], {
+      squidbuilds({
+        selected: ["Splattershot"]
+      }, {
         type: types.DESELECT_ALL
       })
     ).toEqual({
