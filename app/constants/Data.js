@@ -1,4 +1,4 @@
-export const weaponData = [
+export const WeaponData = [
   {
     "name":"Splattershot Jr.",
     "sub":{

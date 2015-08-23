@@ -1,12 +1,14 @@
 import assert from 'assert';
 import Immutable, { Map, List } from 'immutable';
 import squidbuilds from '../../reducers/squidbuilds';
+import { WeaponData } from '../../constants/Data';
 import * as types from '../../constants/ActionTypes';
 
 describe('squidbuilds reducer', () => {
 
   let initialState = Map({
-    selected: List.of()
+    selected: List.of(),
+    WeaponData
   });
 
   it('should handle initial state', () => {
@@ -17,9 +19,9 @@ describe('squidbuilds reducer', () => {
 
   it('should handle DESELECT_ALL', () => {
     let result = squidbuilds(
-      Map({
+      initialState.merge(Map({
         selected: List.of("Splattershot")
-      }), {
+      })), {
         type: types.DESELECT_ALL
       }
     );
@@ -37,17 +39,17 @@ describe('squidbuilds reducer', () => {
     assert(selected.includes("Splattershot"));
   });
 
-  it('should handle SELECT_EQUIPMENT with something selected', () => {
-    let state = Map({
-      selected: List.of("Splattershot Jr.")
-    });
+  it('should handle DESELECT_EQUIPMENT with something selected', () => {
+    let state = initialState.merge(Map({
+      selected: List.of("Splattershot")
+    }));
     let result = squidbuilds(state, {
-      type: types.SELECT_EQUIPMENT,
+      type: types.DESELECT_EQUIPMENT,
       equipment: "Splattershot"
     });
     let selected = result.get("selected");
 
-    assert(selected.includes("Splattershot"));
+    assert(!selected.includes("Splattershot"));
   });
 
 });
