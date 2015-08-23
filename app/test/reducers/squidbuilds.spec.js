@@ -6,10 +6,12 @@ import * as types from '../../constants/ActionTypes';
 
 describe('squidbuilds reducer', () => {
 
-  let initialState = Map({
-    selected: List.of(),
+  let state = {
+    selected: [],
     WeaponData
-  });
+  }
+
+  const initialState = Immutable.fromJS(state);
 
   it('should handle initial state', () => {
     let result = squidbuilds(undefined, {});
@@ -32,37 +34,37 @@ describe('squidbuilds reducer', () => {
   it('should handle SELECT_EQUIPMENT with nothing selected', () => {
     let result = squidbuilds(initialState, {
       type: types.SELECT_EQUIPMENT,
-      equipment: "Splattershot"
+      equipment: 0
     });
     let selected = result.get("selected");
 
-    assert(selected.includes("Splattershot"));
+    assert(selected.includes(0));
   });
 
   it('should handle SELECT_EQUIPMENT with something selected', () => {
     let state = initialState.merge(Map({
-      selected: List.of("Splattershot Jr.")
+      selected: List.of(0)
     }));
     let result = squidbuilds(state, {
       type: types.SELECT_EQUIPMENT,
-      equipment: "Splattershot"
+      equipment: 1
     });
     let selected = result.get("selected");
 
-    assert(selected.includes("Splattershot"));
+    assert(selected.includes(1));
   });
-  
+
   it('should handle DESELECT_EQUIPMENT with something selected', () => {
     let state = initialState.merge(Map({
-      selected: List.of("Splattershot")
+      selected: List.of(0)
     }));
     let result = squidbuilds(state, {
       type: types.DESELECT_EQUIPMENT,
-      equipment: "Splattershot"
+      equipment: 0
     });
     let selected = result.get("selected");
 
-    assert(!selected.includes("Splattershot"));
+    assert(!selected.includes(0));
   });
 
 });
