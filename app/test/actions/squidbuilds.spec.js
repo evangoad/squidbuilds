@@ -5,7 +5,7 @@ import * as actions from '../../actions/squidbuilds'
 describe('squidbuilds actions', () => {
 
   it('select_equipment should create SELECT_EQUIPMENT action', () => {
-    const action = actions.select_equipment("Splattershot");
+    const action = actions.selectEquipment("Splattershot");
 
     assert.deepEqual(
       action,
@@ -14,7 +14,7 @@ describe('squidbuilds actions', () => {
   })
 
   it('deselect_equipment should create DESELECT_EQUIPMENT action', () => {
-    const action = actions.deselect_equipment("Splattershot");
+    const action = actions.deselectEquipment("Splattershot");
 
     assert.deepEqual(
       action,
@@ -23,7 +23,7 @@ describe('squidbuilds actions', () => {
   })
 
   it('deselect_all should create DESELECT_ALL action', () => {
-    const action = actions.deselect_all();
+    const action = actions.deselectAll();
 
     assert.deepEqual(
       action,
