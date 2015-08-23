@@ -39,6 +39,19 @@ describe('squidbuilds reducer', () => {
     assert(selected.includes("Splattershot"));
   });
 
+  it('should handle SELECT_EQUIPMENT with something selected', () => {
+    let state = initialState.merge(Map({
+      selected: List.of("Splattershot Jr.")
+    }));
+    let result = squidbuilds(state, {
+      type: types.SELECT_EQUIPMENT,
+      equipment: "Splattershot"
+    });
+    let selected = result.get("selected");
+
+    assert(selected.includes("Splattershot"));
+  });
+  
   it('should handle DESELECT_EQUIPMENT with something selected', () => {
     let state = initialState.merge(Map({
       selected: List.of("Splattershot")
