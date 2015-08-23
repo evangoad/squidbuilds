@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'assert';
 import Immutable, { Map, List } from 'immutable';
 import squidbuilds from '../../reducers/squidbuilds';
 import * as types from '../../constants/ActionTypes';
