@@ -1,16 +1,23 @@
-import * as types from '../constants/ActionTypes'
+import Immutable, { Map, List } from 'immutable';
+import * as types from '../constants/ActionTypes';
 
-const initialState = {
-  selected: []
-};
+const initialState = Map({
+  selected: List.of()
+})
+
+function selected(state = List.of(), action) {
+  switch (action.type) {
+  case types.DESELECT_ALL:
+    return List.of();
+  case types.SELECT_EQUIPMENT:
+    return state.push(action.equipment);
+  default:
+    return state;
+  }
+}
 
 export default function squidbuilds(state = initialState, action) {
-  switch (action.type) {
-    case types.DESELECT_ALL:
-      return Object.assign({}, state, {
-        selected: []
-      });
-    default:
-      return state;
-  }
+  return Map({
+    selected: selected(state.get("selected"), action)
+  });
 }
