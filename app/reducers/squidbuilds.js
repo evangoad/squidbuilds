@@ -10,9 +10,7 @@ function selected(state = List.of(), action) {
   case types.DESELECT_ALL:
     return List.of();
   case types.SELECT_EQUIPMENT:
-    let newSelected = state.push(action.equipment);
-
-    return newSelected;
+    return state.push(action.equipment);
   default:
     return state;
   }
