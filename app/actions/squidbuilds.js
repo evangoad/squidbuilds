@@ -1,13 +1,13 @@
 import * as types from '../constants/ActionTypes'
 
 export function select_equipment(equipment) {
-  return { type: SELECT_EQUIPMENT, equipment }
+  return { type: types.SELECT_EQUIPMENT, equipment }
 }
 
 export function deselect_equipment(equipment) {
-  return { type: DESELECT_EQUIPMENT, equipment }
+  return { type: types.DESELECT_EQUIPMENT, equipment }
 }
 
 export function deselect_all() {
-  return { type: DESELECT_ALL }
+  return { type: types.DESELECT_ALL }
 }
