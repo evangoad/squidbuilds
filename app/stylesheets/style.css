@@ -1,3 +1,18 @@
 body {
-  background: yellow;
+  background: white;
+}
+
+.equipment-row {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  height: 100px;
+}
+
+.weapon {
+  width: 100px;
+}
+
+.selected {
+  background: pink;
 }
