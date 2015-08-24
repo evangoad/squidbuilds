@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 import Weapon from './Weapon';
 
 class EquipmentRow extends Component {
@@ -23,7 +24,10 @@ class EquipmentRow extends Component {
     });
 
     return (
-      <div>
+      <div
+        className={classNames(
+          'equipment-row'
+        )}>
         {equips}
       </div>
     );

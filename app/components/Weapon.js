@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 export default class Weapon extends Component {
   handleClick() {
@@ -12,11 +13,12 @@ export default class Weapon extends Component {
   render() {
     return (
       <div
-        className={this.props.equipment}
+        className={classNames(
+          'weapon',
+          this.props.equipment,
+          { selected: this.props.selected})
+        }
         onClick={() => this.handleClick()}
-        style={{
-          background: this.props.selected ? 'red' : 'blue',
-        }}
       >
         {this.props.equipment}
       </div>

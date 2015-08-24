@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <a onClick={() => dispatch(actions.deselectAll()) }>
-          Deselect
+          Deselect All
         </a>
         <EquipmentRow
           equipment={WeaponData}
