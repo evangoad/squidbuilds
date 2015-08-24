@@ -2,10 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import Weapon from './Weapon';
 
 class EquipmentRow extends Component {
-  get displayName() {
-    return 'EquipmentRow';
-  }
-
   render() {
     const { equipment, selectedEquipment } = this.props;
 
@@ -40,5 +36,7 @@ EquipmentRow.propTypes = {
   onSelected: PropTypes.func.isRequired,
   selectedEquipment: PropTypes.array.isRequired,
 };
+
+EquipmentRow.displayName = 'EquipmentRow';
 
 export default EquipmentRow;
