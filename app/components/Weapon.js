@@ -1,10 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class Weapon extends Component {
-  get displayName() {
-    return 'Weapon';
-  }
-
   handleClick() {
     if (this.props.selected) {
       this.props.onDeselected(this.props.equipment);
@@ -34,3 +30,5 @@ Weapon.propTypes = {
   onSelected: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
 };
+
+Weapon.displayName = 'Weapon';

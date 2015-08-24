@@ -4,10 +4,6 @@ import * as actions from '../actions/squidbuilds';
 import EquipmentRow from './EquipmentRow';
 
 class App extends Component {
-  get displayName() {
-    return 'App';
-  }
-
   render() {
     const { dispatch, selected, WeaponData } = this.props;
 
@@ -36,6 +32,8 @@ App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   selected: PropTypes.array.isRequired,
 };
+
+App.displayName = 'App';
 
 function select(state) {
   return state.toJS();
