@@ -16,6 +16,7 @@ module.exports = {
       },
       { test: /\.json/, loader: 'json' },
       { test: /\.css/, loader: 'style!css' },
+      { test: /\.(png|jpe?g)$/, loader: 'url-loader?limit=8192' }
     ],
   },
   resolve: {
