@@ -7,7 +7,7 @@ class EquipmentRow extends Component {
     const { equipment, selectedEquipment } = this.props;
 
     let equips = equipment.map((equip, index) => {
-      let selected = (selectedEquipment.indexOf(index) > -1);
+      let selected = (selectedEquipment === index);
 
       return (
         <Weapon

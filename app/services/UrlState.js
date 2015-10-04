@@ -1,14 +1,16 @@
 function get() {
-  if (window.location.hash === '') {
-    return [];
+  if (window.location.hash === '' || window.location.hash === '#.') {
+    return ['', ''];
   } else {
-    return optimisticParse(window.location.hash);
+    const [weapon, shoe] = optimisticParse(window.location.hash);
+
+    return [weapon, shoe]
   }
 }
 
 function optimisticParse(hash) {
   let nums = hash.slice(1);
-  return nums.split('.').map(num => parseInt(num));
+  return nums.split('.').map(intOrUndefined);
 }
 
 function write(array) {
@@ -18,6 +20,14 @@ function write(array) {
   window.history.replaceState(currentState, document.title, chars);
 
   return chars;
+}
+
+function intOrUndefined(num) {
+  if (num === '') {
+    return num;
+  } else {
+    return parseInt(num);
+  }
 }
 
 export { get, write };
