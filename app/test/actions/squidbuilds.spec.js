@@ -58,6 +58,24 @@ describe('squidbuilds actions', () => {
     );
   });
 
+  it('selectHeadgear should create SELECT_HEADGEAR action', () => {
+    const action = actions.selectHeadgear(0);
+
+    assert.deepEqual(
+      action,
+      { type: types.SELECT_HEADGEAR , equipment: 0 }
+    );
+  });
+
+  it('deselectHeadgear should create DESELECT_HEADGEAR action', () => {
+    const action = actions.deselectHeadgear(0);
+
+    assert.deepEqual(
+      action,
+      { type: types.DESELECT_HEADGEAR, equipment: 0}
+    );
+  });
+
   it('deselectAll should create DESELECT_ALL action', () => {
     const action = actions.deselectAll();
 

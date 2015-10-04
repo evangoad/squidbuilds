@@ -10,6 +10,7 @@ describe('squidbuilds reducer', () => {
       weapon: undefined,
       shoe: undefined,
       clothing: undefined,
+      headgear: undefined,
     },
   };
 
@@ -186,7 +187,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle DESELECT_CLOTHING with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({shoe: 0}),
+      selected: Map({clothing: 0}),
     }));
 
     let result = squidbuilds(state, {
@@ -195,6 +196,56 @@ describe('squidbuilds reducer', () => {
     });
 
     let selected = result.get('selected').get('clothing');
+
+    assert(selected === undefined);
+  });
+
+  it('should handle SELECT_HEADGEAR with nothing selected', () => {
+    let result = squidbuilds(initialState, {
+      type: types.SELECT_HEADGEAR,
+      equipment: 0,
+    });
+    let selected = result.get('selected').get('headgear');
+
+    assert(selected === 0);
+  });
+
+  it('should handle SELECT_HEADGEAR with something selected', () => {
+    let state = initialState.merge(Map({
+      selected: Map({headgear: 0})
+    }));
+
+    let result = squidbuilds(state, {
+      type: types.SELECT_HEADGEAR,
+      equipment: 1,
+    });
+
+    let selected = result.get('selected').get('headgear');
+
+    assert(selected === 1);
+  });
+
+  it('should handle DESELECT_HEADGEAR with nothing selected', () => {
+    let result = squidbuilds(initialState, {
+      type: types.DESELECT_HEADGEAR,
+      equipment: 0,
+    });
+    let selected = result.get('selected').get('headgear');
+
+    assert(selected === undefined);
+  });
+
+  it('should handle DESELECT_HEADGEAR with something selected', () => {
+    let state = initialState.merge(Map({
+      selected: Map({headgear: 0})
+    }));
+
+    let result = squidbuilds(state, {
+      type: types.DESELECT_HEADGEAR,
+      equipment: 1,
+    });
+
+    let selected = result.get('selected').get('headgear');
 
     assert(selected === undefined);
   });
