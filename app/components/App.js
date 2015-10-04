@@ -5,7 +5,12 @@ import EquipmentRow from './EquipmentRow';
 
 class App extends Component {
   render() {
-    const { dispatch, selected, WeaponData } = this.props;
+    const {
+      dispatch,
+      selected,
+      WeaponData,
+      ShoeData,
+    } = this.props;
 
     return (
       <div>
@@ -15,12 +20,22 @@ class App extends Component {
         <EquipmentRow
           equipment={WeaponData}
           onDeselected={equipment =>
-            dispatch(actions.deselectEquipment(equipment))
+            dispatch(actions.deselectWeapon(equipment))
           }
           onSelected={equipment =>
-            dispatch(actions.selectEquipment(equipment))
+            dispatch(actions.selectWeapon(equipment))
           }
-          selectedEquipment={selected}
+          selectedEquipment={selected.weapon}
+        />
+        <EquipmentRow
+          equipment={ShoeData}
+          onDeselected={equipment =>
+            dispatch(actions.deselectShoe(equipment))
+          }
+          onSelected={equipment =>
+            dispatch(actions.selectShoe(equipment))
+          }
+          selectedEquipment={selected.shoe}
         />
       </div>
     );

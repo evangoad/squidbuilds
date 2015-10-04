@@ -7,17 +7,25 @@ import App from './components/App';
 import squidbuilds from './reducers/squidbuilds';
 import Immutable from 'immutable';
 import * as UrlState from './services/UrlState';
-import { WeaponData } from './constants/Data';
+import { WeaponData, ShoeData } from './constants/Data';
 
 let state = {
   selected: UrlState.get(),
   WeaponData,
+  ShoeData,
 };
 
 let store = createStore(squidbuilds, Immutable.fromJS(state));
 
 store.subscribe(() => {
-  UrlState.write(store.getState().get('selected').toJS());
+  const selected = store.getState().get('selected').toJS();
+
+  let {
+    weapon,
+    shoe
+  } = selected;
+
+  UrlState.write([weapon, shoe]);
 });
 
 let rootElement = document.getElementById('app');
