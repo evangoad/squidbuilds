@@ -25,7 +25,7 @@ class App extends Component {
           onSelected={equipment =>
             dispatch(actions.selectWeapon(equipment))
           }
-          selectedEquipment={selected[0]}
+          selectedEquipment={selected.weapon}
         />
         <EquipmentRow
           equipment={ShoeData}
@@ -35,7 +35,7 @@ class App extends Component {
           onSelected={equipment =>
             dispatch(actions.selectShoe(equipment))
           }
-          selectedEquipment={selected[1]}
+          selectedEquipment={selected.shoe}
         />
       </div>
     );

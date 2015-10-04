@@ -20,7 +20,12 @@ let store = createStore(squidbuilds, Immutable.fromJS(state));
 store.subscribe(() => {
   const selected = store.getState().get('selected').toJS();
 
-  UrlState.write(selected);
+  let {
+    weapon,
+    shoe
+  } = selected;
+
+  UrlState.write([weapon, shoe]);
 });
 
 let rootElement = document.getElementById('app');

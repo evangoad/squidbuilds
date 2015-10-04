@@ -1,10 +1,13 @@
 function get() {
   if (window.location.hash === '' || window.location.hash === '#.') {
-    return ['', ''];
+    return {
+      weapon: undefined,
+      shoe: undefined
+    };
   } else {
     const [weapon, shoe] = optimisticParse(window.location.hash);
 
-    return [weapon, shoe]
+    return {weapon, shoe}
   }
 }
 
@@ -24,7 +27,7 @@ function write(array) {
 
 function intOrUndefined(num) {
   if (num === '') {
-    return num;
+    return undefined;
   } else {
     return parseInt(num);
   }

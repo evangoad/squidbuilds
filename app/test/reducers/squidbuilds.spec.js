@@ -1,14 +1,16 @@
 import assert from 'assert';
 import Immutable, { Map, List } from 'immutable';
 import squidbuilds from '../../reducers/squidbuilds';
-import { WeaponData } from '../../constants/Data';
+import { WeaponData, ShoeData } from '../../constants/Data';
 import * as types from '../../constants/ActionTypes';
 
 describe('squidbuilds reducer', () => {
 
   let state = {
-    selected: {},
-    WeaponData,
+    selected: {
+      weapon: undefined,
+      shoe: undefined
+    }
   };
 
   const initialState = Immutable.fromJS(state);
@@ -16,19 +18,23 @@ describe('squidbuilds reducer', () => {
   it('should handle initial state', () => {
     let result = squidbuilds(undefined, {});
 
-    assert(Immutable.is(initialState, result));
+    assert(
+      Immutable.is(
+        initialState.get('selected'),
+        result.get("selected")
+      )
+    );
   });
 
   it('should handle DESELECT_ALL', () => {
-    let result = squidbuilds(
-      initialState.merge(Map({
-        selected: Map(),
-      })), {
-        type: types.DESELECT_ALL,
-      }
-    );
+    let result = squidbuilds(undefined, { type: types.DESELECT_ALL, });
 
-    assert(Immutable.is(initialState, result));
+    assert(
+      Immutable.is(
+        initialState.get('selected'),
+        result.get('selected')
+      )
+    );
   });
 
   it('should handle DESELECT_ALL with something selected', () => {
