@@ -40,12 +40,21 @@ describe('squidbuilds actions', () => {
     );
   });
 
-  it('deselectShoe should create DESELECT_SHOE action', () => {
-    const action = actions.deselectShoe(0);
+  it('selectClothing should create SELECT_CLOTHING action', () => {
+    const action = actions.selectClothing(0);
 
     assert.deepEqual(
       action,
-      { type: types.DESELECT_SHOE, equipment: 0 }
+      { type: types.SELECT_CLOTHING, equipment: 0 }
+    );
+  });
+
+  it('deselectClothing should create DESELECT_CLOTHING action', () => {
+    const action = actions.deselectClothing(0);
+
+    assert.deepEqual(
+      action,
+      { type: types.DESELECT_CLOTHING, equipment: 0 }
     );
   });
 

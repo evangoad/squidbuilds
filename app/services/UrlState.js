@@ -2,12 +2,13 @@ function get() {
   if (window.location.hash === '' || window.location.hash === '#.') {
     return {
       weapon: undefined,
-      shoe: undefined
+      shoe: undefined,
+      clothing: undefined
     };
   } else {
-    const [weapon, shoe] = optimisticParse(window.location.hash);
+    const [weapon, shoe, clothing] = optimisticParse(window.location.hash);
 
-    return {weapon, shoe}
+    return {weapon, shoe, clothing}
   }
 }
 
