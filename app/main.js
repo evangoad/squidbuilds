@@ -26,7 +26,7 @@ store.subscribe(() => {
     weapon,
     shoe,
     clothing,
-    headgear
+    headgear,
   } = selected;
 
   UrlState.write([weapon, shoe, clothing, headgear]);

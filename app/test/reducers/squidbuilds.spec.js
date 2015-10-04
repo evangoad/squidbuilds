@@ -212,7 +212,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle SELECT_HEADGEAR with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({headgear: 0})
+      selected: Map({headgear: 0}),
     }));
 
     let result = squidbuilds(state, {
@@ -237,7 +237,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle DESELECT_HEADGEAR with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({headgear: 0})
+      selected: Map({headgear: 0}),
     }));
 
     let result = squidbuilds(state, {
