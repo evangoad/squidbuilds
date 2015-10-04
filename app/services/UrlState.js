@@ -3,12 +3,12 @@ function get() {
     return {
       weapon: undefined,
       shoe: undefined,
-      clothing: undefined
+      clothing: undefined,
     };
   } else {
     const [weapon, shoe, clothing] = optimisticParse(window.location.hash);
 
-    return {weapon, shoe, clothing}
+    return {weapon, shoe, clothing};
   }
 }
 
