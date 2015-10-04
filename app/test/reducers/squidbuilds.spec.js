@@ -1,7 +1,6 @@
 import assert from 'assert';
-import Immutable, { Map, List } from 'immutable';
+import Immutable, { Map } from 'immutable';
 import squidbuilds from '../../reducers/squidbuilds';
-import { WeaponData, ShoeData } from '../../constants/Data';
 import * as types from '../../constants/ActionTypes';
 
 describe('squidbuilds reducer', () => {
@@ -10,8 +9,8 @@ describe('squidbuilds reducer', () => {
     selected: {
       weapon: undefined,
       shoe: undefined,
-      clothing: undefined
-    }
+      clothing: undefined,
+    },
   };
 
   const initialState = Immutable.fromJS(state);
@@ -22,13 +21,13 @@ describe('squidbuilds reducer', () => {
     assert(
       Immutable.is(
         initialState.get('selected'),
-        result.get("selected")
+        result.get('selected')
       )
     );
   });
 
   it('should handle DESELECT_ALL', () => {
-    let result = squidbuilds(undefined, { type: types.DESELECT_ALL, });
+    let result = squidbuilds(undefined, { type: types.DESELECT_ALL });
 
     assert(
       Immutable.is(
@@ -62,7 +61,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle SELECT_WEAPON with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({weapon: 0})
+      selected: Map({weapon: 0}),
     }));
 
     let result = squidbuilds(state, {
@@ -87,7 +86,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle DESELECT_WEAPON with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({weapon: 0})
+      selected: Map({weapon: 0}),
     }));
 
     let result = squidbuilds(state, {
@@ -112,7 +111,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle SELECT_SHOE with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({shoe: 0})
+      selected: Map({shoe: 0}),
     }));
 
     let result = squidbuilds(state, {
@@ -137,7 +136,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle DESELECT_SHOE with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({shoe: 0})
+      selected: Map({shoe: 0}),
     }));
 
     let result = squidbuilds(state, {
@@ -162,7 +161,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle SELECT_CLOTHING with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({clothing: 0})
+      selected: Map({clothing: 0}),
     }));
 
     let result = squidbuilds(state, {
@@ -187,7 +186,7 @@ describe('squidbuilds reducer', () => {
 
   it('should handle DESELECT_CLOTHING with something selected', () => {
     let state = initialState.merge(Map({
-      selected: Map({shoe: 0})
+      selected: Map({shoe: 0}),
     }));
 
     let result = squidbuilds(state, {

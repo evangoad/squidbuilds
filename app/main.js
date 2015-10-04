@@ -13,7 +13,7 @@ let state = {
   selected: UrlState.get(),
   WeaponData,
   ShoeData,
-  ClothingData
+  ClothingData,
 };
 
 let store = createStore(squidbuilds, Immutable.fromJS(state));
@@ -24,7 +24,7 @@ store.subscribe(() => {
   let {
     weapon,
     shoe,
-    clothing
+    clothing,
   } = selected;
 
   UrlState.write([weapon, shoe, clothing]);

@@ -54,9 +54,9 @@ class App extends Component {
 }
 
 App.propTypes = {
-  WeaponData: PropTypes.array.isRequired,
-  ShoeData: PropTypes.array.isRequired,
   ClothingData: PropTypes.array.isRequired,
+  ShoeData: PropTypes.array.isRequired,
+  WeaponData: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired,
   selected: PropTypes.array.isRequired,
 };

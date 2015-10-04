@@ -7,20 +7,20 @@ const { TestUtils } = React.addons;
 
 function props() {
   return {
-    equipment: "Test Equipment",
+    equipment: 'Test Equipment',
     selected: false,
     onSelected: expect.createSpy(),
     onDeselected: expect.createSpy(),
-  }
+  };
 };
 
 function selectedProps() {
   return {
-    equipment: "Test Equipment",
+    equipment: 'Test Equipment',
     selected: true,
     onSelected: expect.createSpy(),
     onDeselected: expect.createSpy(),
-  }
+  };
 };
 
 function setup() {
