@@ -16,6 +16,14 @@ export function deselectShoe(equipment) {
   return { type: types.DESELECT_SHOE, equipment };
 }
 
+export function selectClothing(equipment) {
+  return { type: types.SELECT_CLOTHING, equipment};
+}
+
+export function deselectClothing(equipment) {
+  return { type: types.DESELECT_CLOTHING, equipment};
+}
+
 export function deselectAll() {
   return { type: types.DESELECT_ALL };
 }

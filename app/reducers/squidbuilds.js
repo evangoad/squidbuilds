@@ -1,14 +1,16 @@
 import Immutable, { Map, List } from 'immutable';
-import { WeaponData, ShoeData } from '../constants/Data';
+import { WeaponData, ShoeData, ClothingData } from '../constants/Data';
 import * as types from '../constants/ActionTypes';
 
 let state = {
   selected: { 
     weapon: undefined,
     shoe: undefined,
+    clothing: undefined,
   },
   WeaponData,
   ShoeData,
+  ClothingData,
 };
 
 const initialState = Immutable.fromJS(state);
@@ -24,6 +26,10 @@ function selected(state = initialSelected, action) {
     return state.set('shoe', action.equipment);
   case types.DESELECT_SHOE:
     return state.set('shoe', undefined);
+  case types.SELECT_CLOTHING:
+    return state.set('clothing', action.equipment);
+  case types.DESELECT_CLOTHING:
+    return state.set('clothing', undefined);
   case types.DESELECT_ALL:
     return initialSelected
   default:
