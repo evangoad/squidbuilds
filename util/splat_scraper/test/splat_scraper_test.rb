@@ -5,3 +5,4 @@ class SplatScraperTest < Minitest::Test
     refute_nil ::SplatScraper::VERSION
   end
 end
+
