@@ -15,7 +15,6 @@ export default class Weapon extends Component {
       <div
         className={classNames(
           'weapon',
-          this.props.equipment,
           { selected: this.props.selected})
         }
         onClick={() => this.handleClick()}

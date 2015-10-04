@@ -12,7 +12,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['react-hot', 'babel?stage=0'],
       },
       { test: /\.json/, loader: 'json' },
       { test: /\.css/, loader: 'style!css' },
