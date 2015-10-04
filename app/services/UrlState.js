@@ -4,11 +4,12 @@ function get() {
       weapon: undefined,
       shoe: undefined,
       clothing: undefined,
+      headgear: undefined
     };
   } else {
-    const [weapon, shoe, clothing] = optimisticParse(window.location.hash);
+    const [weapon, shoe, clothing, headgear] = optimisticParse(window.location.hash);
 
-    return {weapon, shoe, clothing};
+    return {weapon, shoe, clothing, headgear};
   }
 }
 

@@ -17,11 +17,19 @@ export function deselectShoe(equipment) {
 }
 
 export function selectClothing(equipment) {
-  return { type: types.SELECT_CLOTHING, equipment};
+  return { type: types.SELECT_CLOTHING, equipment };
 }
 
 export function deselectClothing(equipment) {
-  return { type: types.DESELECT_CLOTHING, equipment};
+  return { type: types.DESELECT_CLOTHING, equipment };
+}
+
+export function selectHeadgear(equipment) {
+  return { type: types.SELECT_HEADGEAR, equipment };
+}
+
+export function deselectHeadgear(equipment) {
+  return { type: types.DESELECT_HEADGEAR, equipment };
 }
 
 export function deselectAll() {

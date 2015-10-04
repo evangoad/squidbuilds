@@ -11,6 +11,7 @@ class App extends Component {
       WeaponData,
       ShoeData,
       ClothingData,
+      HeadgearData,
     } = this.props;
 
     return (
@@ -48,6 +49,16 @@ class App extends Component {
           }
           selectedEquipment={selected.clothing}
           />
+        <EquipmentRow
+          equipment={HeadgearData}
+          onDeselected={equipment =>
+            dispatch(actions.deselectHeadgear(equipment))
+          }
+          onSelected={equipment =>
+            dispatch(actions.selectHeadgear(equipment))
+          }
+          selectedEquipment={selected.headgear}
+          />
       </div>
     );
   }
@@ -57,6 +68,7 @@ App.propTypes = {
   ClothingData: PropTypes.array.isRequired,
   ShoeData: PropTypes.array.isRequired,
   WeaponData: PropTypes.array.isRequired,
+  HeadgearData: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired,
   selected: PropTypes.array.isRequired,
 };
