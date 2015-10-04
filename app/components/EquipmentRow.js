@@ -12,6 +12,7 @@ class EquipmentRow extends Component {
       return (
         <Weapon
           equipment={equip.name}
+          key={index}
           onDeselected={() =>
             this.props.onDeselected(index)
           }
@@ -38,7 +39,7 @@ EquipmentRow.propTypes = {
   equipment: PropTypes.array.isRequired,
   onDeselected: PropTypes.func.isRequired,
   onSelected: PropTypes.func.isRequired,
-  selectedEquipment: PropTypes.array.isRequired,
+  selectedEquipment: PropTypes.number,
 };
 
 EquipmentRow.displayName = 'EquipmentRow';

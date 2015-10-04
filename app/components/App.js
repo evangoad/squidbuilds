@@ -66,11 +66,11 @@ class App extends Component {
 
 App.propTypes = {
   ClothingData: PropTypes.array.isRequired,
+  HeadgearData: PropTypes.array.isRequired,
   ShoeData: PropTypes.array.isRequired,
   WeaponData: PropTypes.array.isRequired,
-  HeadgearData: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired,
-  selected: PropTypes.array.isRequired,
+  selected: PropTypes.object.isRequired,
 };
 
 App.displayName = 'App';

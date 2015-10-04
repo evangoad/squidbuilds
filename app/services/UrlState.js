@@ -4,7 +4,7 @@ function get() {
       weapon: undefined,
       shoe: undefined,
       clothing: undefined,
-      headgear: undefined
+      headgear: undefined,
     };
   } else {
     const [weapon, shoe, clothing, headgear] = optimisticParse(window.location.hash);
