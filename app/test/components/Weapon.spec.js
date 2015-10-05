@@ -24,20 +24,20 @@ function selectedProps() {
 };
 
 function setup() {
-  return renderWeapon(props());
+  return shallowRenderWeapon(props());
 }
 
-function selected_setup() {
-  return renderWeapon(selectedProps());
+function selectedSetup() {
+  return shallowRenderWeapon(selectedProps());
 }
 
-function renderWeapon(myProps) {
+function shallowRenderWeapon(p) {
   let renderer = TestUtils.createRenderer();
-  renderer.render(<Weapon {...myProps} />);
+  renderer.render(<Weapon {...p} />);
   let output = renderer.getRenderOutput();
 
   return {
-    props: myProps,
+    props: p,
     output,
     renderer,
   };
@@ -78,7 +78,7 @@ describe('components', () => {
 
     describe('when selected', () => {
       it('should render correctly', () => {
-        const { output, props } = selected_setup();
+        const { output, props } = selectedSetup();
 
         expect(output.type).toBe('div');
         expect(output.props.className).toBe('weapon selected');

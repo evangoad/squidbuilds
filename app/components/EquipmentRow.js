@@ -4,6 +4,16 @@ import Weapon from './Weapon';
 
 class EquipmentRow extends Component {
   render() {
+    return (
+      <div
+        className='equipment-row'
+      >
+        {this._renderEquips()}
+      </div>
+    );
+  }
+
+  _renderEquips() {
     const { equipment, selectedEquipment } = this.props;
 
     let equips = equipment.map((equip, index) => {
@@ -24,15 +34,9 @@ class EquipmentRow extends Component {
       );
     });
 
-    return (
-      <div
-        className={classNames(
-          'equipment-row'
-        )}>
-        {equips}
-      </div>
-    );
+    return equips;
   }
+
 }
 
 EquipmentRow.propTypes = {
